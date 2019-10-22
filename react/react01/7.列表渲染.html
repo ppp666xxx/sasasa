@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../base/react.min.js"></script>
+  <!-- 提供react对象 -->
+  <script src='../base/react-dom.min.js'></script>
+  <!-- ReactDOM 对象 -->
+  <script src='../base/browser.min.js'></script>
+  <!-- 帮助浏览器解析jsx 语法 -->
+</head>
+<body>
+  <div id='app'>
+
+  </div>
+  
+<script type='text/babel'>
+
+var  Component = React.createClass({
+  getInitialState(){
+    return{
+      list:['真实魔鬼游戏','咒怨','午夜凶铃','贞子大战伽椰子','与神同行','寄生虫'],
+      obj:{us:123,ps:456}
+    }
+  },
+  render(){
+    // 渲染函数  返回一个jsx语法
+    
+    return(
+     <div>
+ 
+      {this.state.list.map((item)=>{
+        return (<li>{item}</li>)
+      })}
+     </div>
+    )
+  }
+})
+// 数组渲染在react 每一项会被拆分开
+// react 对象不能直接砸视图进行渲染
+ReactDOM.render(<Component/>,app)
+</script>
+</body>
+</html>

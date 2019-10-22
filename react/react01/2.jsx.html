@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../base/react.min.js"></script>
+  <script src="../base/react-dom.min.js"></script>
+  <script src="../base/browser.min.js"></script>
+</head>
+<body>
+ <div id='app'>
+
+ </div> 
+ <script type='text/babel'>
+//  告诉浏览器需要解析jsx
+   let Hehe =React.createClass({
+     render(){
+       return(
+         <div>
+          你好世界
+          <hr/>
+         </div>
+       )
+     }
+   })
+  ReactDOM.render(<Hehe/>,app)
+ </script>
+</body>
+</html>
+<!-- 
+语法糖
+js的类 原型实现
+class  语法糖 将部分的代码 做了简化
+jsx 就是一个语法糖
+最影响效率的就是 dom 操作
+console.time()
+jsx javascritpt  xml 必须有一个根元素 标签必须闭合 
+可以在js代码直接写标签
+ -->

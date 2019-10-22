@@ -1,0 +1,57 @@
+!<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../base/react.min.js"></script>
+  <!-- 提供react对象 -->
+  <script src='../base/react-dom.min.js'></script>
+  <!-- ReactDOM 对象 -->
+  <script src='../base/browser.min.js'></script>
+  <!-- 帮助浏览器解析jsx 语法 -->
+</head>
+<body>
+  <div id='app'>
+
+  </div>
+<script type="text/babel">
+
+let Component = React.createClass({
+  getInitialState(){
+     return {
+       show:false
+     }
+  },
+  renderDiv(){
+    console.log('hehe')
+    if(this.state.show){
+      return(
+        <div>
+          这里是测试div
+        </div>
+      )
+    }else{
+      return  ''
+    }
+    
+  },
+  render(){
+    console.log(this,'组件对象')
+    return(
+      <div>
+        {/* {this.state.show?<div>测试div</div>:''} */}
+        {/*{!this.state.show||<div>测试div</div>}*/}
+        { this.renderDiv()}
+      </div>
+    )
+  }
+})
+
+ReactDOM.render(<Component/>,app)
+// 通过 state 里的一个值 控制一个div的渲染不渲染
+// {/* 要注释的内容*/}
+</script>
+</body>
+</html>

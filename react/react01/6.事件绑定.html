@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../base/react.min.js"></script>
+  <!-- 提供react对象 -->
+  <script src='../base/react-dom.min.js'></script>
+  <!-- ReactDOM 对象 -->
+  <script src='../base/browser.min.js'></script>
+  <!-- 帮助浏览器解析jsx 语法 -->
+</head>
+<body>
+  <div id='app'>
+
+  </div>
+  
+<script type='text/babel'>
+
+var  Component = React.createClass({
+  getInitialState(){
+    return{
+      num:1
+    }
+  },
+  add(num,e){
+    console.log('add',num,e)
+    var num=++this.state.num
+    this.setState({num:num})
+    // 通知页面修改
+  },
+  render(){
+    return(
+      <p>
+       {this.state.num}
+      {/* <button onClick={this.add.bind(this,1)}>add</button>*/}
+      <button onClick={(e)=>{
+        this.add(1,e)
+      }}>add</button>
+      </p>
+    )
+  }
+})
+
+ReactDOM.render(<Component/>,app)
+/*
+react 中的事件绑定  类似于原生js 命名法师采用驼峰命名  onclick  onClick  onblur  onBlur
+react 事件 默认参数是事件对象
+要传其他参数 切记 不能加 （）  {this.fun()}   {this.fun.bind(this,null,...)}
+bind 会将默认参数向后放
+ 
+
+*/
+</script>
+</body>
+</html>

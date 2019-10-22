@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../base/react.min.js"></script>
+  <!-- 提供react对象 -->
+  <script src='../base/react-dom.min.js'></script>
+  <!-- ReactDOM 对象 -->
+  <script src='../base/browser.min.js'></script>
+  <!-- 帮助浏览器解析jsx 语法 -->
+</head>
+<body>
+  <div id='app'>
+
+  </div>
+  
+<script type='text/babel'>
+// 告诉浏览器 这段代码有jsx 语法
+// 创建React组件 配置项 swiper  new Swiper({})
+var  Component = React.createClass({
+  render(){
+    // 渲染函数  返回一个jsx语法
+    return(
+      <p>
+       你好世界
+      </p>
+    )
+  }
+})
+
+React.createElement({tag:'div',className:'hehe',id:'test'},[
+  React.createElement({tag:'span'},[])
+])
+jsx
+<div >
+</div>
+<div id='test' class='hehe'>
+  <span></span>
+</div>
+// let app=0
+// 将组件的挂载到真实dom上
+// ReactDOM.render(<Component/>,document.getElementById('app'))
+// ReactDOM.render(<Component></Component>,document.getElementById('app'))
+ReactDOM.render(<Component/>,app)
+</script>
+</body>
+</html>
