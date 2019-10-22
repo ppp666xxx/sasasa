@@ -91,6 +91,15 @@ git pull origin dev  将远程仓库的文件下拉 跟新本地仓库
      robot3t
 #### 真机调试
 
+git 地址：https://github.com/fchangjun/1914gitflow.git
+
+####  前端的职责
+1. 数据请求  ajax  
+   api接口文档 多样化  网页  exect  txt  doc           -1 -2 表示失败 -999 -998 全局错误   0  证书 成功
+   接口4要素  1. 地址 2.method 3 params  4. response {err/code:状态码,msg/text:'提示信息',data/list：返回的数据}
+2. 渲染界面  vue  react  原生js  jq 
+3. 用户交互  点击 触摸 滚动 ...
+4. 页面好看点
 
 
 
