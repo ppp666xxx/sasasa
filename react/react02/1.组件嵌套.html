@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../base/react.min.js"></script>
+    <script src="../base/react-dom.min.js"></script>
+    <script src="../base/browser.min.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<style>
+
+</style>
+
+<body>
+    <div id="app">
+
+    </div>
+   
+    <script type="text/babel">
+ 
+    let Fa =React.createClass({
+        getInitialState(){
+            return {
+                name:"洗剪吹"
+            }
+        },
+        render(){
+            return(
+                <div>
+                    <h1>父组件</h1>
+                    <hr/>
+                    {/* 通过自定义属性 props*/}
+                
+                    <Son name={this.state.name }>
+                       <div><p>sdfsfs</p></div>
+                    </Son>
+                </div>
+            )
+        }
+    })
+    let Son =React.createClass({
+        getDefaultProps(){
+            // 生命周期 初始props
+            // props 从外而来 和  初始化冲突  以外部为准
+            return {
+                name:'韩梅梅'
+            }
+        },
+        render(){
+            console.log(this,'子组件')
+            return(
+                <div>
+                    <h1>子组件</h1>
+                    {/*相当于vue中slot插槽 可以获取组件标签的内容*/}
+                    {this.props.children}
+                    {/*获取props数据*/}
+                    {this.props.name}
+                </div>
+            )
+        }
+    })
+//    react没有插槽  组件标签内部的内容可以通过 this。props.children
+    ReactDOM.render(<Fa/>,document.getElementById("app"))
+           
+    </script>
+</body>
+</html>

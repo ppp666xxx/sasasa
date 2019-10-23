@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../../base/react.min.js"></script>
+    <script src="../../base/react-dom.min.js"></script>
+    <script src="../../base/browser.min.js"></script>
+    <style>
+        tr,td{
+            border: 1px solid red;
+        }
+        .select{
+            opacity: .5;
+        }
+    </style>
+</head>
+
+<style>
+
+</style>
+
+<body>
+    <div id="app">
+
+    </div>
+   
+    <script type="text/babel">
+       
+        var CommentBoxComponent = React.createClass({  
+        /**/ 
+            getInitialState(){
+              return {
+                 sel:0,
+                 arr:[[1],
+                     [1,2],
+                     [1,2,3],
+                     [1,2,3,4],
+                     [1,2,3,4,5],
+                     [1,2,3,4,5,6],
+                     [1,2,3,4,5,6,7],
+                     [1,2,3,4,5,6,7,8],
+                     [1,2,3,4,5,6,7,8,9]]
+              }
+            },
+            renderTd(tds,line){
+                // tds td数组  line 第几行
+             return  tds.map((item)=>{
+                 return (<td>{line+1}*{item}={(line+1)*item}</td>)
+             })
+            },
+            mouseOver(index){
+             console.log('划过了',index)
+             this.setState({sel:index})
+            },
+            render:function () {
+               return (
+                   <table >
+                      {this.state.arr.map((item,index)=>{
+                          return (<tr 
+                          className={this.state.sel===index?'select':''}
+                          onMouseOver={this.mouseOver.bind(this,index)}
+                          style={ {background:index%2?'blue':'green'}}
+                          >{this.renderTd(item,index)}</tr>)
+                      })}
+                   </table>
+               ) 
+            }
+        })
+        ReactDOM.render(<CommentBoxComponent/>,document.getElementById("app"))
+       
+    /*
+        9*9 
+        将用户的精力从dom操作转移到数据操作
+        map
+    */ 
+        
+    </script>
+</body>
+</html>

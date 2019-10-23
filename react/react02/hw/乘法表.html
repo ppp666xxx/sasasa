@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../../base/react.min.js"></script>
+    <script src="../../base/react-dom.min.js"></script>
+    <script src="../../base/browser.min.js"></script>
+    <style>
+        tr,td{
+            border: 1px solid red;
+        }
+        .sel{
+            opacity: .5;
+        }
+    </style>
+</head>
+
+<style>
+
+</style>
+
+<body>
+    <div id="app">
+
+    </div>
+   
+    <script type="text/babel">
+       
+        var CommentBoxComponent = React.createClass({  
+        /**/ 
+            getInitialState(){
+              return {
+                sel:0,
+                arr:[[1],
+                     [1,2],
+                     [1,2,3],
+                     [1,2,3,4],
+                     [1,2,3,4,5],
+                     [1,2,3,4,5,6],
+                     [1,2,3,4,5,6,7],
+                     [1,2,3,4,5,6,7,8],
+                     [1,2,3,4,5,6,7,8,9]]
+              }
+            },
+            renderTd(item,hr){
+               return item.map((item,index)=>{
+                  return(<td>{hr+1}*{item}</td>)
+               })
+            },
+            sel(index){
+               console.log(index)
+            this.setState({sel:index})
+            },
+            render:function () {
+               return (
+                   <table >
+                      {this.state.arr.map((item,index)=>{
+                        return  (<tr 
+                                  className={index===this.state.sel?'sel':''}
+                                  style={{background:index%2?'red':'blue'}}
+                                  onMouseOver={this.sel.bind(this,index)}>
+                                  {this.renderTd(item,index)}
+                                 </tr>)
+                      })}
+                   </table>
+               ) 
+            }
+        })
+
+        ReactDOM.render(<CommentBoxComponent/>,document.getElementById("app"))
+       
+        
+        
+    </script>
+</body>
+</html>

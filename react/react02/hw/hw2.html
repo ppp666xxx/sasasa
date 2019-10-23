@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../../base/react.min.js"></script>
+    <script src="../../base/react-dom.min.js"></script>
+    <script src="../../base/browser.min.js"></script>
+    <style>
+      .sel{
+          background: red;
+      }
+    </style>
+</head>
+
+<style>
+
+</style>
+
+<body>
+    <div id="app">
+
+    </div>
+   
+    <script type="text/babel">
+       
+        var CommentBoxComponent = React.createClass({  
+        /**/ 
+            getInitialState(){
+              return {
+                  list:['动漫','恐怖','爱情','动作'],
+                  sel:0
+              }
+            },
+            renderNav(data){
+              if(data.length===0) return '暂无数据'
+              return (
+                  <ul>
+                    {data.map((item,index)=>{
+                        return(<li
+                        onClick={()=>{
+                            this.setState({sel:index})
+                        }} 
+                        className={this.state.sel===index?'sel':''}
+                        
+                        >{item}</li>)
+                    })}
+                  </ul>
+              )
+            },
+            render:function () {
+               let {list} = this.state
+            //    解构赋值
+            //    let  list =this.state.list
+            //    let sel=this.state.sel
+            // let {list,sel} = this.state
+               return (
+                  <div>
+                    {this.renderNav(list)}
+                   <hr/>
+                   {this.state.list.map((item,index)=>{
+                       return (<div style={ {display:this.state.sel===index?'block':'none'}}>{item}</div>)
+                   })}
+                  </div> 
+               ) 
+            }
+        })
+        ReactDOM.render(<CommentBoxComponent/>,document.getElementById("app"))
+       
+    /*
+        tab 
+        1. 导航部分 
+        2. 内容展示部分
+    */ 
+        
+    </script>
+</body>
+</html>
